@@ -8,12 +8,14 @@
 
 # テストメソッドが呼ばれたらtrueを出力し、
 # 呼ばれなかったらfalseを出力する
+class WasRun:
+    def __init__(self, name):
+        self.wasRun = None
+    def testMethod(self):
+        self.wasRun = 1
+
 test =  WasRun("testMethod")
 print(test.wasRun) #false
 test.testMethod()
 print(test.wasRun) #true
 
-class WasRun:
-    def __init__(self, name):
-        pass
-        #self.wasRun = None
