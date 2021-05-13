@@ -8,16 +8,18 @@
 
 class TestCase:
     pass
-
-class WasRun:
+        
+class WasRun(TestCase):
     def __init__(self, name):
         self.wasRun = None
         self.name = name
+
     def run(self):
         method = getattr(self, self.name)
-        method()
+        method()  
     def testMethod(self):
         self.wasRun = 1
+
 
 # テストメソッドが呼ばれたらtrueを出力し、
 # 呼ばれなかったらfalseを出力する
