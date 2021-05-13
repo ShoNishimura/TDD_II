@@ -7,12 +7,13 @@
 # 収集したテスト結果を出力する
 
 class TestCase:
-    pass
-        
+    def __init__(self, name):
+        self.name = name  
+
 class WasRun(TestCase):
     def __init__(self, name):
         self.wasRun = None
-        self.name = name
+        super().__init__(name)
 
     def run(self):
         method = getattr(self, self.name)
