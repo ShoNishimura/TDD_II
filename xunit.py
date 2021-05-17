@@ -23,18 +23,17 @@ class WasRun(TestCase):
     def testMethod(self):
         self.wasRun = 1
     
-    
 # テストメソッドが呼ばれたらtrueを出力し、
 # 呼ばれなかったらfalseを出力する
 class TestCaseTest(TestCase):
+    def setUp(self):
+        self.test = WasRun("testMethod")
     def testRunning(self):
-        test =  WasRun("testMethod")
-        test.run()
-        assert(test.wasRun) #true
-    def testSetUp(Self):
-        test = WasRun("testMethod")
-        test.run()
-        assert(test.wasSetUp)
+        self.test.run()
+        assert(self.test.wasRun) #true
+    def testSetUp(self):
+        self.test.run()
+        assert(self.test.wasSetUp)
 
 TestCaseTest("testRunning").run()
 TestCaseTest("testSetUp").run()
