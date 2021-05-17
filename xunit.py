@@ -19,9 +19,10 @@ class TestCase:
 class WasRun(TestCase):
     def setUp(self):
         self.wasRun = None
-        self.log = "setUp"
+        self.log = "setUp "
     def testMethod(self):
         self.wasRun = 1
+        self.log = self.log + "testMethod "
     
 # テストメソッドが呼ばれたらtrueを出力し、
 # 呼ばれなかったらfalseを出力する
@@ -31,10 +32,10 @@ class TestCaseTest(TestCase):
     def testRunning(self):
         self.test.run()
         assert(self.test.wasRun) #true
-    def testSetUp(self):
+    def testTemplateMethod(self):
         self.test.run()
-        assert("setUp" == self.test.log)
+        assert("setUp testMethod " == self.test.log)
 
 TestCaseTest("testRunning").run()
-TestCaseTest("testSetUp").run()
+TestCaseTest("testTemplateMethod").run()
 
