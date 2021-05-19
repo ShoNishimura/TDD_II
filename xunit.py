@@ -41,8 +41,10 @@ class TestCaseTest(TestCase):
         assert("1 run, 0 failed" == result.summary())
     
 class TestResult:
+    def __init__(self):
+        self.runCount = 1
     def summary(self):
-            return "1 run, 0 failed"
+            return "%d run, 0 failed" % self.runCount
 
 
 TestCaseTest("testTemplateMethod").run()
